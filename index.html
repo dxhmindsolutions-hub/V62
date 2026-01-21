@@ -5,9 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Despensa</title>
 
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#4CAF50">
-
 <style>
 *{box-sizing:border-box}
 body{
@@ -129,42 +126,21 @@ main{
   color:#fff
 }
 
-/* ===== BOTONES CANTIDAD ===== */
-.btns.qty{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:8px
-}
-.btns.qty button{
-  padding:10px 0;
-  border:1px solid #000;
-  border-radius:12px;
-  background:#fff; /* blanco */
-  font-weight:600;
-  color:#000;
-  cursor:pointer;
-}
-
-/* ===== BOTONES UNIDAD ===== */
-.btns.unit{
-  display:flex;
-  gap:8px
-}
+/* ===== BOTONES CANTIDAD / UNIDAD ===== */
+.btns.qty button,
 .btns.unit button{
-  flex:1;
-  padding:10px 0;
+  background:#fff;
+  color:#000;
   border:1px solid #000;
   border-radius:12px;
-  background:#fff; /* blanco */
+  padding:10px 0;
   font-weight:600;
-  color:#000;
   cursor:pointer;
 }
 
-/* ACTIVO */
 .btns button.active{
   background:#000;
-  color:#fff
+  color:#fff;
 }
 
 /* ===== TICKET ===== */
@@ -202,11 +178,6 @@ main{
   color:#000;
   cursor:pointer;
 }
-/* Vista previa de WhatsApp: verde */
-.ticket-actions button.preview{
-  background:#43a047;
-  color:#fff;
-}
 
 /* ===== MODALES ===== */
 .modal{
@@ -235,13 +206,7 @@ main{
 }
 
 /* ===== BOTONES MODAL ===== */
-.modal .box > div:last-child{
-  display:flex;
-  gap:8px;
-  margin-top:16px
-}
-.modal #save,
-.modal #add{
+.btn-green{
   background:#43a047; /* verde */
   color:#fff;
   border:none;
@@ -250,7 +215,7 @@ main{
   font-weight:600;
   cursor:pointer;
 }
-.modal #cancel{
+.btn-red{
   background:#ff3b30; /* rojo */
   color:#fff;
   border:none;
@@ -286,19 +251,8 @@ main{
   <ul id="ticketList"></ul>
   <div class="ticket-actions">
     <button onclick="printTicket()">🖨️ Imprimir</button>
-    <button onclick="sendWhatsApp()">📲 WhatsApp</button> <!-- pantalla principal: blanco -->
+    <button onclick="sendWhatsApp()">📲 WhatsApp</button>
     <button onclick="resetTicket()">🔄 Nuevo</button>
-  </div>
-</div>
-
-<!-- Vista previa de WhatsApp -->
-<div id="whatsappPreview" class="modal">
-  <div class="box">
-    <p>Vista previa del mensaje:</p>
-    <div>
-      <button class="preview" onclick="sendWhatsApp()">Enviar</button> <!-- verde -->
-      <button id="cancel" onclick="closeConfirm()">Cancelar</button> <!-- rojo -->
-    </div>
   </div>
 </div>
 
@@ -306,8 +260,8 @@ main{
   <div class="box">
     <p id="confirmText"></p>
     <div>
-      <button id="add" onclick="confirmDelete()">Aceptar</button> <!-- verde -->
-      <button id="cancel" onclick="closeConfirm()">Cancelar</button> <!-- rojo -->
+      <button id="add" class="btn-green" onclick="confirmDelete()">Aceptar</button>
+      <button id="cancel" class="btn-red" onclick="closeConfirm()">Cancelar</button>
     </div>
   </div>
 </div>
