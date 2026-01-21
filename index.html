@@ -139,7 +139,7 @@ main{
   padding:10px 0;
   border:1px solid #000;
   border-radius:12px;
-  background:#fff; /* vuelve a blanco */
+  background:#fff; /* blanco */
   font-weight:600;
   color:#000;
   cursor:pointer;
@@ -155,7 +155,7 @@ main{
   padding:10px 0;
   border:1px solid #000;
   border-radius:12px;
-  background:#fff; /* vuelve a blanco */
+  background:#fff; /* blanco */
   font-weight:600;
   color:#000;
   cursor:pointer;
@@ -198,7 +198,7 @@ main{
   border-radius:10px;
   padding:12px;
   font-weight:600;
-  background:#fff; /* vuelve a blanco */
+  background:#fff; /* blanco */
   color:#000;
   cursor:pointer;
 }
@@ -286,8 +286,19 @@ main{
   <ul id="ticketList"></ul>
   <div class="ticket-actions">
     <button onclick="printTicket()">🖨️ Imprimir</button>
-    <button class="preview" onclick="sendWhatsApp()">📲 WhatsApp</button>
+    <button onclick="sendWhatsApp()">📲 WhatsApp</button> <!-- pantalla principal: blanco -->
     <button onclick="resetTicket()">🔄 Nuevo</button>
+  </div>
+</div>
+
+<!-- Vista previa de WhatsApp -->
+<div id="whatsappPreview" class="modal">
+  <div class="box">
+    <p>Vista previa del mensaje:</p>
+    <div>
+      <button class="preview" onclick="sendWhatsApp()">Enviar</button> <!-- verde -->
+      <button id="cancel" onclick="closeConfirm()">Cancelar</button> <!-- rojo -->
+    </div>
   </div>
 </div>
 
@@ -295,8 +306,8 @@ main{
   <div class="box">
     <p id="confirmText"></p>
     <div>
-      <button id="add" onclick="confirmDelete()">Aceptar</button>
-      <button id="cancel" onclick="closeConfirm()">Cancelar</button>
+      <button id="add" onclick="confirmDelete()">Aceptar</button> <!-- verde -->
+      <button id="cancel" onclick="closeConfirm()">Cancelar</button> <!-- rojo -->
     </div>
   </div>
 </div>
